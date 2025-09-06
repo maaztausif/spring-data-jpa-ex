@@ -20,22 +20,22 @@ public class SpringDataJpaExApplication {
 		Student s2 = context.getBean(Student.class);
 		Student s3 = context.getBean(Student.class);
 
-		s1.setName("Maaz");
+		s1.setName("Major Maaz");
 		s1.setRollNo(1);
-		s1.setMarks(100);
+		s1.setMarks(99);
 
 		s2.setName("major");
 		s2.setRollNo(2);
-		s2.setMarks(100);
+		s2.setMarks(90);
 
 		s3.setName("ali");
 		s3.setRollNo(3);
-		s3.setMarks(100);
+		s3.setMarks(80);
 
 
 		repo.save(s1);
-		repo.save(s2);
-		repo.save(s3);
+//		repo.save(s2);
+//		repo.save(s3);
 
 		System.out.println("============================");
 		System.out.println(repo.findAll());
@@ -45,6 +45,15 @@ public class SpringDataJpaExApplication {
 		System.out.println("============================");
 
 		System.out.println(s.orElse(new Student()));
+
+		System.out.println("============================");
+
+		System.out.println(repo.findByName("Maaz"));
+
+		System.out.println("============================");
+
+		System.out.println(repo.findByMarks(90));
+		repo.delete(s2);
 	}
 
 }
